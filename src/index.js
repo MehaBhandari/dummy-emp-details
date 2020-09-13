@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EmpDetail from './empDetails';
+import EmpList from './empList';
 
-var empList = [{
+var empList = [
+  {
   name: 'Meha',
   empId: '0001',
   age: 28,
@@ -29,32 +30,13 @@ var empList = [{
   salary: 150
 }]
 
-function DummyApp(props) {
-  return (
-   <div>
-      {
-        props.empList.map((emp)=>{
-          // var {name, empId, age, salary} = {emp}
-          return (
-            <div>
-              {/* Easiest way */}
-              <EmpDetail {...emp}></EmpDetail><hr/> 
-
-              {/* 
-              For sending properties one by one and using var {name, empId} = {emp}
-              <EmpDetail name={name} age={age} salary={salary}></EmpDetail><hr/>
-              
-              For sending properties one by one
-              <EmpDetail name={emp.name} age={emp.age} salary={emp.salary}></EmpDetail><hr/>
-              
-              For sending whole object at once... but it copies the reference and change in obj will alter original obj too
-              <EmpDetail emp={emp}></EmpDetail><hr/> */}
-            </div>
-          )
-        })
-      }
-   </div>    
+function RenderDom() {
+  return(
+    <div>
+      <EmpList empList = {empList}></EmpList>
+    </div>
   )
 }
+  
 
-ReactDOM.render(<DummyApp empList={empList}></DummyApp>, document.getElementById('root'))
+ReactDOM.render(<RenderDom></RenderDom>, document.getElementById('root'))
