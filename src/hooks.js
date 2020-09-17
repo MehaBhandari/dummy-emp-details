@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
 
 export default function HooksFunctionality(){
-    
+    debugger; 
+
     var [salary, setSalary] = useState(2000);
     var [userDetail, setUserDetail] = useState({
         name: 'Meha',
@@ -9,18 +10,40 @@ export default function HooksFunctionality(){
         designation: 'Developer'
     });
     function incrementedSalary() {
-        setSalary(salary+100);
+        // setSalary(salary); 
+        // This will not result in re-rendering as no change in virtual DOM wrt original DOM
+        setSalary(salary +100); 
+        // This will result in rerendering
     }
 
-    // UseEffect will be called at initial rendering as well as on change of name
+    // UseEffect will be called everytime
     useEffect(()=>{
-        alert('Hiii');
-    }, [userDetail.name]);
+        alert('This is without parameter');
+    });
+
+    // UseEffect will be called only once
+    useEffect(()=>{
+        alert('This is with empty array');
+    }, []);
+
+    // UseEffect will be called at initial rendering as well as on change of name or age
+    useEffect(()=>{
+        alert('This is on change of name or age');
+    }, [userDetail]);    
+    // useEffect(()=>{
+    //     alert('This is on change of name or age');
+    // }, [userDetail.name, userDetail.age]);
 
     function setNewUserDetail(event) {
-        debugger;
+        // This will not make any change in reference, so rendering will not happen..
+        // userDetail[event.target.dataset.attr]= event.target.value;
+        // setUserDetail(userDetail);
+
         setUserDetail({...userDetail,
-                    [event.target.dataset.attr]: event.target.value})
+            [event.target.dataset.attr]: event.target.value})
+
+        // setUserDetail({...userDetail,
+        //             [event.target.dataset.attr]: event.target.value})
 
         // if(event.target.dataset.attr === 'name'){
         //     setUserDetail({...userDetail,
