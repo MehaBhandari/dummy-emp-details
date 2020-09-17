@@ -19,11 +19,18 @@ export default function HooksFunctionality(){
     // UseEffect will be called everytime
     useEffect(()=>{
         alert('This is without parameter');
+
+        return ()=> { 
+            console.log('CleanUp destructor function for without parameter')
+        };
     });
 
     // UseEffect will be called only once
     useEffect(()=>{
-        alert('This is with empty array');
+        alert('This is with empty array for []');
+        return ()=>{ 
+            console.log('CleanUp destructor function for []')
+        };
     }, []);
 
     // UseEffect will be called at initial rendering as well as on change of name or age
