@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import EmpList from './empList';
+import EmpDetail, {FinancialDetails} from './empDetailsHigherOrderFun';
 
 var empList = [
   {
@@ -33,6 +34,10 @@ var empList = [
 function RenderDom() {
   return(
     <div>
+      <h1>This is a Higher Order Component</h1>
+      <EmpDetail></EmpDetail> <hr></hr>
+      <FinancialDetails></FinancialDetails><hr></hr>
+      <h1>This is Employee List</h1>
       <EmpList empList = {empList}></EmpList>
     </div>
   )
