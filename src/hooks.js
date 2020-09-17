@@ -1,6 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 export default function HooksFunctionality(){
+    
     var [salary, setSalary] = useState(2000);
     var [userDetail, setUserDetail] = useState({
         name: 'Meha',
@@ -10,6 +11,12 @@ export default function HooksFunctionality(){
     function incrementedSalary() {
         setSalary(salary+100);
     }
+
+    // UseEffect will be called at initial rendering as well as on change of name
+    useEffect(()=>{
+        alert('Hiii');
+    }, [userDetail.name]);
+
     function setNewUserDetail(event) {
         debugger;
         setUserDetail({...userDetail,
