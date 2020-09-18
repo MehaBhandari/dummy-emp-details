@@ -1,8 +1,6 @@
 import React,{useState,useEffect} from 'react';
 
 export default function HooksFunctionality(){
-    debugger; 
-
     var [salary, setSalary] = useState(2000);
     var [userDetail, setUserDetail] = useState({
         name: 'Meha',

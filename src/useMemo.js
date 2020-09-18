@@ -12,7 +12,7 @@ export default function UseMemoHooksFunction() {
     //     debugger;
     //     return inputVal+10;
     // })
-    // It will memorise function only and never the output
+    // It will memorise function only and never the output 
 
     function incrementCounter(){
         setCounter(counter+1);
